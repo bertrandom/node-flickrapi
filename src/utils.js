@@ -347,7 +347,9 @@ module.exports = (function() {
       delete photoOptions.photo;
       if(typeof photo === "string") { photo = fs.createReadStream(photo); }
 
-      console.log(photoOptions);
+      if (!flickrOptions.silent) {
+        console.log(photoOptions);        
+      }
 
       flickrOptions = this.setAuthVals(flickrOptions);
       photoOptions.oauth_signature_method = "HMAC-SHA1";
